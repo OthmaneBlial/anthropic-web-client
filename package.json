@@ -1,0 +1,44 @@
+{
+  "name": "anthropic-web-client",
+  "version": "1.0.0",
+  "description": "Web client for Anthropic AI. User-friendly interface to interact with Claude, manage conversations, and customize AI settings.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix"
+  },
+  "keywords": [],
+  "author": "Othmane BLIAL",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@types/jest": "^29.5.12",
+    "@types/webpack-env": "^1.18.5",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.9.1",
+    "html-webpack-plugin": "^5.6.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "postcss": "^8.4.42",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.10",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.4",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "highlight.js": "^11.10.0"
+  }
+}
