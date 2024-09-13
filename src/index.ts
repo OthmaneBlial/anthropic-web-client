@@ -19,6 +19,7 @@ const elements = {
     promptTextarea: document.getElementById('prompt') as HTMLTextAreaElement,
     promptButton: document.getElementById('prompt-button') as HTMLButtonElement,
     loadingIndicator: document.getElementById('loadingIndicator') as HTMLElement,
+    menuToggle: document.getElementById('menuToggle') as HTMLButtonElement,
 };
 
 function updateMaxHistoryLength(e: Event): void {
@@ -108,6 +109,41 @@ function saveSelectedModel(e: Event): void {
     setStoredValue('selectedModel', model);
 }
 
+function handleResize(): void {
+    const sidebar = elements.sidebar;
+    const mainContent = elements.mainContent;
+    
+    if (window.innerWidth >= 1024) {
+        sidebar.classList.remove('-translate-x-full');
+        mainContent.classList.add('lg:ml-64');
+    } else {
+        sidebar.classList.add('-translate-x-full');
+        mainContent.classList.remove('lg:ml-64');
+    }
+}
+
+function toggleSidebar(): void {
+    const sidebar = elements.sidebar;
+    const mainContent = elements.mainContent;
+    
+    sidebar.classList.toggle('-translate-x-full');
+    if (window.innerWidth >= 1024) {
+        mainContent.classList.toggle('lg:ml-64');
+    }
+}
+
+function handleClickOutside(event: MouseEvent): void {
+    const sidebar = elements.sidebar;
+    const menuToggle = elements.menuToggle;
+    
+    if (!sidebar.contains(event.target as Node) && 
+        !menuToggle.contains(event.target as Node) && 
+        !sidebar.classList.contains('-translate-x-full') &&
+        window.innerWidth < 1024) {
+        toggleSidebar();
+    }
+}
+
 // Event listeners
 elements.maxHistoryLengthInput.addEventListener('change', updateMaxHistoryLength);
 elements.clearConversationButton.addEventListener('click', clearConversation);
@@ -115,10 +151,14 @@ elements.promptForm.addEventListener('submit', handleFormSubmit);
 elements.apiKeyInput.addEventListener('change', saveApiKey);
 elements.promptTextarea.addEventListener('input', autoResizeTextarea);
 elements.modelSelect.addEventListener('change', saveSelectedModel);
+elements.menuToggle.addEventListener('click', toggleSidebar);
+document.addEventListener('click', handleClickOutside);
+window.addEventListener('resize', handleResize);
 
 
 // Initialization
 elements.maxHistoryLengthInput.value = MAX_HISTORY_LENGTH.toString();
 elements.apiKeyInput.value = getStoredValue(API_KEY_STORAGE_KEY, '');
 elements.modelSelect.value = getStoredValue('selectedModel', 'claude-3-haiku-20240307');
+
 

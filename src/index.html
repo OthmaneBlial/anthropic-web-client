@@ -18,13 +18,19 @@
     </style>
 </head>
 <body class="h-full bg-purple-50 flex flex-col">
-    <header class="bg-white shadow-sm z-10 p-4 flex justify-center items-center">
+    <header class="bg-white shadow-sm z-10 p-4 flex justify-between items-center">
+        <button id="menuToggle" class="lg:hidden text-indigo-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
         <h2 class="text-2xl font-bold text-indigo-800">Chat with Claude</h2>
+        <div class="w-6"></div> <!-- Spacer for centering -->
     </header>
 
     <div class="flex-1 flex overflow-hidden">
         <!-- Sidebar -->
-        <div id="sidebar" class="w-64 bg-white shadow-lg transition-all overflow-y-auto">
+        <div id="sidebar" class="w-64 bg-white shadow-lg transition-all overflow-y-auto fixed inset-y-0 left-0 z-20 transform -translate-x-full lg:relative lg:translate-x-0">
             <div class="p-6 space-y-6">
                 <h1 class="text-2xl font-bold text-indigo-800">Anthropic API</h1>
                 
@@ -69,7 +75,7 @@
         </div>
         
         <!-- Main content -->
-        <div id="mainContent" class="flex-1 flex flex-col overflow-hidden transition-all">
+        <div id="mainContent" class="flex-1 flex flex-col overflow-hidden transition-all w-full lg:w-[calc(100%-16rem)]">
             <main class="flex-1 overflow-y-auto p-6">
                 <div id="chatContainer" class="space-y-6 max-w-3xl mx-auto">
                     <!-- Chat messages will be inserted here -->
