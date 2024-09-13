@@ -112,7 +112,7 @@ function copyCodeToClipboard(event: MouseEvent): void {
 
 export async function sendMessageToApi(apiRequest: AnthropicApiRequest): Promise<string> {
     try {
-        const response = await fetch('http://othmane.hopto.org:3000/api/anthropic', {
+        const response = await fetch('https://othmane.hopto.org:3000/api/anthropic', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(apiRequest)
