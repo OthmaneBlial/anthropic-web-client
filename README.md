@@ -3,6 +3,9 @@
 
 This project is a web client for the Anthropic API, allowing users to interact with Claude, an AI assistant.
 
+## Demo
+https://othmane.hopto.org/anthropic-web-client/
+
 ## Features
 
 - Chat interface for communicating with Claude
