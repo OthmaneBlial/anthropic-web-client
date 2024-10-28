@@ -1,6 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /* Custom styles */
 :root {
@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: var(--main-bg);
 }
 
@@ -48,7 +48,8 @@ pre {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  transition: margin-left var(--transition-duration) ease-in-out, width var(--transition-duration) ease-in-out;
+  transition: margin-left var(--transition-duration) ease-in-out,
+    width var(--transition-duration) ease-in-out;
 }
 
 main {

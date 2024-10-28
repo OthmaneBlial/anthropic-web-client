@@ -1,9 +1,9 @@
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 
-jest.mock('./utils', () => ({
+jest.mock("./utils", () => ({
   getStoredValue: jest.fn((key) => {
-    if (key === 'selectedModel') return 'claude-3-haiku-20240307';
-    return '20';
+    if (key === "selectedModel") return "claude-3-haiku-20240307";
+    return "20";
   }),
   setStoredValue: jest.fn(),
   createMessageElement: jest.fn(),
@@ -12,10 +12,10 @@ jest.mock('./utils', () => ({
 }));
 
 // Mock CSS imports
-jest.mock('./styles.css', () => ({}));
-jest.mock('highlight.js/styles/github.css', () => ({}));
+jest.mock("./styles.css", () => ({}));
+jest.mock("highlight.js/styles/github.css", () => ({}));
 
-describe('index.ts', () => {
+describe("index.ts", () => {
   beforeEach(() => {
     document.body.innerHTML = `
       <input id="maxHistoryLength" value="20" />
@@ -39,28 +39,32 @@ describe('index.ts', () => {
 
     jest.resetModules();
 
-    require('./index');
+    require("./index");
   });
 
-  test('DOM elements are correctly initialized', () => {
-    const maxHistoryLength = document.getElementById('maxHistoryLength') as HTMLInputElement;
-    const modelSelect = document.getElementById('modelSelect') as HTMLSelectElement;
+  test("DOM elements are correctly initialized", () => {
+    const maxHistoryLength = document.getElementById(
+      "maxHistoryLength"
+    ) as HTMLInputElement;
+    const modelSelect = document.getElementById(
+      "modelSelect"
+    ) as HTMLSelectElement;
 
-    expect(maxHistoryLength).toHaveValue('20');
-    expect(modelSelect.value).toBe('claude-3-haiku-20240307');
-    expect(document.getElementById('clearConversation')).toBeInTheDocument();
-    expect(document.getElementById('promptForm')).toBeInTheDocument();
-    expect(document.getElementById('chatContainer')).toBeInTheDocument();
-    expect(document.getElementById('apiKey')).toBeInTheDocument();
+    expect(maxHistoryLength).toHaveValue("20");
+    expect(modelSelect.value).toBe("claude-3-haiku-20240307");
+    expect(document.getElementById("clearConversation")).toBeInTheDocument();
+    expect(document.getElementById("promptForm")).toBeInTheDocument();
+    expect(document.getElementById("chatContainer")).toBeInTheDocument();
+    expect(document.getElementById("apiKey")).toBeInTheDocument();
   });
 
-  test('Clear conversation button clears chat container', () => {
-    const chatContainer = document.getElementById('chatContainer');
+  test("Clear conversation button clears chat container", () => {
+    const chatContainer = document.getElementById("chatContainer");
     if (chatContainer) {
-      chatContainer.innerHTML = '<div>Test message</div>';
+      chatContainer.innerHTML = "<div>Test message</div>";
     }
-    const clearButton = document.getElementById('clearConversation');
+    const clearButton = document.getElementById("clearConversation");
     clearButton?.click();
-    expect(document.getElementById('chatContainer')?.innerHTML).toBe('');
+    expect(document.getElementById("chatContainer")?.innerHTML).toBe("");
   });
 });
