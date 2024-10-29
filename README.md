@@ -1,7 +1,12 @@
-
 # Anthropic API Web Client
 
 This project is a web client for the Anthropic API, allowing users to interact with Claude, an AI assistant.
+
+## DEMO
+
+https://www.othmaneblial.xyz/anthropic-web-client/
+
+![alt text](image.png)
 
 ## Features
 
@@ -21,21 +26,25 @@ This project is a web client for the Anthropic API, allowing users to interact w
 ### Installation
 
 1. Clone the repository:
+
    ```
    git clone https://github.com/yourusername/anthropic-web-client.git
    ```
 
 2. Navigate to the project directory:
+
    ```
    cd anthropic-web-client
    ```
 
 3. Install dependencies:
+
    ```
    npm install
    ```
 
 4. Start the development server:
+
    ```
    npm start
    ```
